@@ -71,4 +71,4 @@ int main()
     free(arr->A); // Free the dynamically allocated memory for the array
     free(arr);    // Free the dynamically allocated memory for the struct
 }
-// Output: duplicates are: 1 2 3 4 5 6 7 8 9 10
+// Output: duplicates are: 2
