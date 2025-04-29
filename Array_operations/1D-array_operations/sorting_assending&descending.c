@@ -54,7 +54,9 @@ int main()
 {
     struct Array arr = {{2, 4, 6, 8, 16, 12, 15}, 10, 7};
     display(arr); // 2 4 6 8 16 12 15
-    sort(&arr); 
+    sort_assending(&arr); 
     display(arr); // 2 4 6 8 12 15 16
+    sort_descending(&arr);
+    display(arr); // 16 15 12 8 6 4 2
     return 0;
 }
