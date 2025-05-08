@@ -9,33 +9,44 @@ struct Node
 // Function to create a new node with given data
 struct Node *createNode(int value)
 {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node)); // Allocate memory
-    newNode->data = value;                                             // Assign value to the node
-    newNode->next = NULL;                                              // Initialize next as NULL
-    return newNode;
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node)); // Allocate memory for a new node
+    if (newNode == NULL) // Check if memory allocation was successful
+    {
+        printf("Memory allocation failed\n");
+        exit(1); // Exit the program if memory allocation fails
+    }
+    newNode->data = value; // Set the data of the new node
+    newNode->next = NULL;  // Initialize the next pointer to NULL
+    return newNode;        // Return the newly created node
 }
-// Function to print the linked list
+
 void printList(struct Node *head)
 {
-    struct Node *current = head; // Start from the head node
-    printf("Linked List: ");
-    while (current != NULL)
+    struct Node *current = head; // Start from the head of the list
+    while (current != NULL) // Traverse the list until the end
     {
-        printf("%d -> ", current->data); // Print data of current node
-        current = current->next;         // Move to next node
+        printf("%d -> ", current->data); // Print the data of the current node
+        current = current->next;          // Move to the next node
     }
-    printf("NULL\n"); // End of list
+    printf("NULL\n"); // Indicate the end of the list
 }
+
 int main()
 {
-    // Step 1: Create individual nodes
-    struct Node *head = createNode(10);   // First node (head)
-    struct Node *second = createNode(20); // Second node
-    struct Node *third = createNode(30);  // Third node
-    // Step 2: Link the nodes together
-    head->next = second;  // First node points to second
-    second->next = third; // Second node points to third
-    // Step 3: Print the linked list
-    printList(head);
-    return 0;
+    struct Node *head = NULL; // Initialize the head of the list to NULL
+    struct Node *second = NULL; // Initialize the second node to NULL
+    struct Node *third = NULL;  // Initialize the third node to NULL
+
+    // Allocate memory for nodes in the linked list in heap
+    head = createNode(1); // Create the first node with data 1
+    second = createNode(2); // Create the second node with data 2
+    third = createNode(3);  // Create the third node with data 3
+
+    // Link the nodes together to form a linked list
+    head->next = second; // Link first node with second node
+    second->next = third; // Link second node with third node
+
+    printList(head); // Print the linked list
+
+    return 0; // Return success
 }
