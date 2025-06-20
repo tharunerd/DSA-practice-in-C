@@ -50,6 +50,8 @@ void duplicates(struct Array *arr)
 
 }
 
+
+
 int main()
 {
     struct Array *arr = create(10);
