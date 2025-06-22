@@ -48,7 +48,6 @@ int main() {
 
     int k = 10; // Example sum
     findPairsWithSumK(arr, k);
-
     free(arr->A);
     free(arr);
     return 0;
