@@ -28,3 +28,21 @@ void find_min_max(const struct array *arr, int *min, int *max) {
         }
     }
 }
+
+
+int main ()
+{
+
+    struct array arr;
+    int data[] = {3, 5, 1, 8, 2};
+    arr.data = data;
+    arr.size = sizeof(data) / sizeof(data[0]);
+
+    int min, max;
+    find_min_max(&arr, &min, &max);
+
+    printf("Minimum: %d\n", min);
+    printf("Maximum: %d\n", max);
+
+    return 0;
+}

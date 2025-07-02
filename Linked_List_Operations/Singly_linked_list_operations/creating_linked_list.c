@@ -6,6 +6,7 @@ struct Node
     int data;          // Data part of the node
     struct Node *next; // Pointer to the next node
 };
+
 // Function to create a new node with given data
 struct Node *createNode(int value)
 {
