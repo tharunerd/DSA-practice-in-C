@@ -49,6 +49,25 @@ void insertAfter(struct Node* prev_node, int new_data) {
     new_node->next = prev_node->next; // Link the new node to the next of prev_node
     prev_node->next = new_node; // Link prev_node to the new node
 }
+
+void insert_at_given_index(struct Node** head_ref, int index, int new_data) {
+    if (index < 0) {
+        printf("Index cannot be negative.\n");
+        return;
+    }
+    struct Node* new_node = createNode(new_data);
+    if (index == 0) {
+        insertAtBeginning(head_ref, new_data);
+        return;
+    }
+    struct Node* temp = *head_ref;
+    for (int i = 0; i < index - 1 && temp->next != *head_ref; i++) {
+        temp = temp->next; // Traverse to the node before the desired index
+    }
+    new_node->next = temp->next; // Link the new node to the next of temp
+    temp->next = new_node; // Link temp to the new node
+}
+
 void printCircularLinkedList(struct Node* head) {
     if (head == NULL) return;
     struct Node* temp = head;
@@ -73,6 +92,9 @@ int main() {
     insertAtEnd(&head, 5);
     printf("Circular Linked List after inserting at end:\n");
     printCircularLinkedList(head);
+    // Insert at a specific index
+    insert_at_given_index(&head, 2, 10); // Insert 10 at index 2
+    printf("Circular Linked List after inserting 10 at index 2:\n");
 
     // Insert after a specific node (in this case, after node with data 2)
     struct Node* temp = head;
