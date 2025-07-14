@@ -65,7 +65,6 @@ void deleteLastNode(struct Node** head_ref) {
     if (*head_ref == NULL) { // Check if the list is empty
         return;
     }
-    
     struct Node* current = *head_ref; // Start from the head of the list
     if (current->next == *head_ref) { // If there is only one node in the list
         free(current); // Free the memory allocated for the node
